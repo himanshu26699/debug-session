@@ -3,12 +3,10 @@ Data Analysis and ML Model Training Script
 This script loads student performance data, preprocesses it, and trains a simple model.
 """
 
-# Bug 1: Wrong import syntax
 from pandas import pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
-# Bug 2: Missing import for train_test_split
 
 def load_data(filepath):
     """Load the dataset from CSV file"""
@@ -21,7 +19,6 @@ def preprocess_data(data):
     """Preprocess the data by handling missing values"""
     print("\nPreprocessing data...")
 
-    # Bug 3: Missing colon after if statement
     if data.isnull().sum().sum() > 0
         print("Handling missing values...")
         data = data.fillna(data.mean())
@@ -34,7 +31,6 @@ def train_model(X_train, X_test, y_train, y_test):
 
     model = LinearRegression()
 
-    # Bug 4: Trying to predict before fitting the model
     predictions = model.predict(X_test)
     model.fit(X_train, y_train)
 
@@ -56,12 +52,10 @@ def main():
     # Preprocess
     data = preprocess_data(data)
 
-    # Bug 5: Wrong column name (should be 'final_score')
     X = data[['study_hours', 'attendance', 'previous_score']]
     y = data['score']
 
     # Split data into train and test sets
-    # Bug 2 will cause error here due to missing import
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Train model
