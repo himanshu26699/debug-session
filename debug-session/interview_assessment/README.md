@@ -13,62 +13,33 @@ This is a coding assessment to test your debugging skills. The repository contai
 ## Expected Time
 This exercise should take approximately **15-30 minutes** to complete.
 
-## Setup Instructions
+## My corrections:
+-I changed my Python interpreter to 3.12.6 that was compatible with the packages mentioned in requirements.txt
+-requirements.txt
+Old packages 
+#pandas==2.1.0
+#numpy==1.24.3
 
-### Step 1: Create a Virtual Environment (Recommended)
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
+# Packages that worked with my system
+    numpy>=1.26.4
+    pandas>=2.2.0
+    scikit-learn>=1.4.0
 
-### Step 2: Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+## code corrections
+    #from pandas import pd : wrong import statement
+    import pandas as pd # corrected
+    #from numpy import np : wrong import statement
+    import numpy as np # corrected
 
-### Step 3: Run the Script
-```bash
-python data_analysis.py
-```
+    sklearn package was missing so addded it in requirements.txt
+    from sklearn.model_selection import train_test_split   # This import statement was also missing so added it
+    from sklearn.linear_model import LinearRegression
+    from sklearn.metrics import mean_squared_error
 
-## What the Code Should Do
-When working correctly, the script should:
-- Load student performance data from `student_data.csv`
-- Preprocess the data (handle missing values)
-- Split data into training and test sets
-- Train a Linear Regression model
-- Display the model's Mean Squared Error
+# corrected the order of the two lines
+    model.fit(X_train, y_train)
+    predictions = model.predict(X_test)
 
-## Files in This Repository
-- `data_analysis.py` - Main Python script (contains bugs)
-- `student_data.csv` - Sample student performance dataset
-- `requirements.txt` - Python package dependencies
-- `README.md` - This file
+# correction: score was wrong column name 
+    y = data['final_score']  
 
-## Tips for Debugging
-1. Read error messages carefully - they usually point to the problem
-2. Check import statements
-3. Verify syntax (colons, indentation)
-4. Ensure packages are installed
-5. Check the logic flow of the code
-
-## Success Criteria
-The script runs without errors and displays output similar to:
-```
-==================================================
-Student Performance Analysis
-==================================================
-Loading data...
-Data loaded successfully! Shape: (20, 4)
-
-Preprocessing data...
-
-Training model...
-Model trained! Mean Squared Error: X.XX
-
-==================================================
-Analysis completed successfully!
-==================================================
-```
-
-Good luck! 🚀
